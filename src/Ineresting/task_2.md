@@ -257,6 +257,67 @@ Finally, the program checks if the number of type-1 edges included in the soluti
 
 The code uses several C++ Standard Library components such as vector, tuple, pair, and memset, as well as IO optimizations for fast input reading. The use of auto [v, f] and auto [u, v, w] relies on structured bindings introduced in C++17, which allows for unpacking tuples and pairs into individual variables.
 
+## C++ annotated
+
+```c++
+#include <bits/stdc++.h>
+namespace IO {
+char ibuf[(1 << 21) + 1], *iS, *iT;
+char Get() {
+  return (iS == iT ? (iT = (iS = ibuf) + fread(ibuf, 1, (1 << 21) + 1, stdin),
+                      (iS == iT ? EOF : *iS++))
+                   : *iS++);
+}
+int read() {
+  int x = 0, c = Get();
+  while (!isdigit(c)) c = Get();
+  while (isdigit(c)) x = x * 10 + c - 48, c = Get();
+  return x;
+}
+}  // namespace IO
+using IO::read;
+using std::pair;
+using std::tuple;
+using std::vector;
+using i64 = long long;
+const int N = 500007 // max number of nodes;
+vector<pair<int, int>> e[N] // the graph;
+vector<tuple<int, int, int>> E // type-2 edges;
+int dep[N] /*node depths*/, p[N] /*parents*/, fa[N] /*parents in dsu*/;
+void dfs(int u, int d) {
+  dep[u] = d // record depth of node u;
+  for (auto [v, f] : e[u]) // for each connected v and their flag f
+    if (!dep[v]) p[v] = u * f /* store parent * flag */, dfs(v, d + 1) /*then go on dfs*/;
+}
+int find(int x) { return fa[x] ? fa[x] = find(fa[x]) : x; } // find the representative of the set that x belong
+int main() {
+  int n /*num nodes*/ = read(), k /*num type-1 edges*/ = read(), m /*num type-2 edges*/ = read(), cnt = 0;
+  i64 ans = 0;
+  for (int i = 1, u, v; i <= k; ++i)
+    // process type-1 edges
+    u = read(), v = read(), e[u].emplace_back(v, 1), e[v].emplace_back(u, 1), // add edge to e
+    fa[find(u)] = find(v); // add to dsj
+  for (int i = 1, u, v, fu, fv; i <= m; ++i)
+    // process type-2 edges
+    if ((fu = find(u = read())) ^ (fv = find(v = read())))
+      // if fu and and fv NOT in the same set in DSU, add to graph and update DSU
+      read(), e[u].emplace_back(v, -1), e[v].emplace_back(u, -1), fa[fu] = fv;
+    else
+      // If in same set add to E
+      E.emplace_back(u, v, read());
+  // do dfs
+  dfs(1, 1), memset(fa + 1, 0, n << 2); // then clear dsu
+  for (auto [u, v, w] : E)
+    while ((u = find(u)) ^ (v = find(v))) {
+      if (dep[u] < dep[v]) std::swap(u, v); // get the lowest node
+      if (p[u] > 0) ++cnt, ans += w; // if u to parent is type-1 add uv weight to ans
+      fa[u] = abs(p[u]); // connect parent of u in dsu
+    }
+  cnt < k ? puts("-1") : printf("%lld", ans);
+}
+```
+
+
 ## Description From Code Contest
 
 You are managing a mobile phone network, and want to offer competitive prices to connect a network.
@@ -293,7 +354,16 @@ Examples
 
 Input
 
-4 3 6 1 2 3 4 1 3 2 3 3 3 1 4 1 2 4 4 2 8 4 3 8 4 1 10
+4 3 6 
+1 2 
+3 4 
+1 3 
+2 3 3 
+3 1 4 
+1 2 4 
+4 2 8 
+4 3 8 
+4 1 10
 
 Output
 
@@ -301,7 +371,10 @@ Output
 
 Input
 
-3 2 1 1 2 2 3 1 2 30
+3 2 1 
+1 2 
+2 3 
+1 2 30
 
 Output
 
@@ -309,7 +382,13 @@ Output
 
 Input
 
-4 3 3 1 2 1 3 1 4 4 1 1000000000 4 2 1000000000 4 3 1000000000
+4 3 3 
+1 2 
+1 3 
+1 4 
+4 1 1000000000 
+4 2 1000000000 
+4 3 1000000000
 
 Output
 
