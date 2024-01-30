@@ -47,7 +47,7 @@ Temperature = 0.8
 
 ### Attempt 1
 
-**Summary**: 
+**Result Summary**: 
 - **unsafe** everywhere
 - did not pass test cases, reason to be seen 
 
@@ -148,7 +148,7 @@ fn main() {
 
 ### Attempt 2
 
-**Summary**:
+**Result Summary**:
 - Global variable c not considered in update function variables
 - The rest is correct
 
@@ -236,7 +236,7 @@ fn main() {
 
 ### Attempt 3
 
-**Summary**:
+**Result Summary**:
 
 - Correct
 

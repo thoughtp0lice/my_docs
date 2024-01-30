@@ -40,7 +40,7 @@ Temperature = 0.8
 
 ### Attempt 1
 
-**Summary**: No compile error, but bit shift overflow
+**Result Summary**: No compile error, but bit shift overflow
 
 ```rust
 use std::collections::HashMap;
@@ -86,7 +86,7 @@ fn main() {
 
 ### Attempt 2
 
-**Summary**: No compile error, but bit shift overflow
+**Result Summary**: No compile error, but bit shift overflow
 
 
 ```rust
@@ -126,7 +126,7 @@ fn main() {
 
 ### Attempt 3
 
-**Summary**: No compile error, but bit shift overflow
+**Result Summary**: No compile error, but bit shift overflow
 
 
 ```rust

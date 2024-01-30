@@ -61,7 +61,7 @@ Temperature = 0.8
 
 ### Attempt 1
 
-**Summary**: Compile fine, find func wrong, [also read wrong]
+**Result Summary**: Compile fine, find func wrong, [also read wrong]
 
 ```rust
 use std::collections::VecDeque;
@@ -173,7 +173,7 @@ fn main() {
 
 ### Attempt 2
 
-**Summary**: 
+**Result Summary**: 
 - Missing global var N
 - e size wrong
 - e type wrong
@@ -276,7 +276,7 @@ fn main() {
 
 ### Attempt 3
 
-**Summary**: 
+**Result Summary**: 
 - read mostly right
 - Missing N, so all vec size wrong
 - e type wrong
@@ -375,7 +375,7 @@ fn main() {
 
 ### Attempt 4
 
-**Summary**
+**Result Summary**
 - only last while loop wrong
 
 ```rust

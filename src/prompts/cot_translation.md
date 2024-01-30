@@ -2,7 +2,7 @@
 ## System & Few Shot Examples
 
 ### System
-You are an expert in Rust and C++. You will help the translate C++ programs into correct and safe Rust programs that implement the same functionalities as the C++ program. Use the following step-by-step instructions to respond to user inputs.
+You are an code generation agent proficient in Rust and C++. You will help the translate C++ programs into correct and safe Rust programs that implement the same functionalities as the C++ program. Use the following step-by-step instructions to respond to user inputs.
 
 Step 1 - The user will provide you a C++ program in Code delimiters like:
 ```c++
@@ -10,9 +10,11 @@ Step 1 - The user will provide you a C++ program in Code delimiters like:
 
 Step 2 - You will describe the behaviors of the C++ program with a prefix that says "Program description:". Please make sure your description is as detailed as possible. 
 
-Step 3 - You will explain step by step to the user how you will translate this C++ program to Rust. Your explanation also need to be as detailed as possible.  a Put this after prefix: "Translation steps:". 
+Step 3 - You will explain step-by-step to the user how you will translate this C++ program to Rust. Your explanation also need to be as detailed as possible.  a Put this after prefix: "Translation steps:". 
 
-Step 4 - Finally, You will give the translated rust code, put your program within code delimiters, for example:
+Step 4 - The user will check your program description and step-by-step plan to ensure your plan is sound and correct. 
+
+Step 5 - Finally, if the user approves your translation steps. You will give the line-by-line rust code translation. The code your provide must be complete and compilable. Do not provide a simplified program, a partially written program, or just general instructions. Put your program within code delimiters, for example:
 ```rust
 // your code here
 ```
@@ -49,7 +51,11 @@ Translation steps:
 5. **Calculate count**: Check if `a` is divisible by `b`. If it's not, calculate the `count` as described in the program description above. Please note that Rust does not have a `floor` method for integer division as it automatically truncates the decimal part. Therefore, `a / b` in Rust is equivalent to `floor(a / b)` in C++ when `a` and `b` are integers. 
 6. **Print output**: Print the value of `count` followed by a newline. Rust uses the `println!` macro to print to the console.
 
-Here is the translated Rust code:
+### User
+
+The steps looks good please provide the complete code translation. 
+
+### Assistant 
 
 ```rust
 use std::io::{self, BufRead};
@@ -109,7 +115,11 @@ Translation steps:
 
 5. **Immutable and mutable variable declarations**: We will declare variables accordingly in Rust using `let` and `let mut` for immutable and mutable variables, respectively.
 
-Here's the translated Rust program:
+### User
+
+The steps looks good please provide the complete code translation. 
+
+### Assistant
 
 ```rust
 use std::io;
@@ -136,9 +146,6 @@ fn main() {
 ```c++
 #include <bits/stdc++.h>
 using namespace std;
-void ga(int N, int *A) {
-  for (int i(0); i < N; i++) scanf("%d", A + i);
-}
 long long pw(long long n, long long k) {
   if (!k) return 1;
   if (k & 1) return n * pw(n, k - 1) % (100000);
@@ -179,7 +186,11 @@ Translation steps:
 
 5. **Error handling and `unwrap`**: Rust requires handling potential errors, such as those that might occur when parsing a string to an integer. We'll use `unwrap` for simplicity, but in a production environment, more robust error handling would be advised.
 
-Here's the translated Rust program:
+### User
+
+The steps looks good please provide the complete code translation. 
+
+### Assistant
 
 ```rust
 use std::io;

@@ -1,4 +1,4 @@
-# Task 3 Naive Result
+# Task 4 Naive Result
 
 ## Prompt 
 
@@ -57,7 +57,7 @@ Temperature = 0.8
 
 ### Attempt 1
 
-**Summary**
+**Result Summary**
 - type error everywhere
 
 ```rust
@@ -141,7 +141,7 @@ fn main() {
 
 ### Attempt 2
 
-**Summary**: 
+**Result Summary**: 
 - still type error everywhere
 
 
@@ -224,7 +224,7 @@ fn main() {
 
 ### Attempt 3
 
-**Summary**:
+**Result Summary**:
 
 - No read until for std.lock()
 - lots and lots of type error
@@ -320,7 +320,7 @@ fn main() {
 
 ### Attempt 4
 
-**Summary**
+**Result Summary**
 - 3 type conversion errors
 
 ```rust
