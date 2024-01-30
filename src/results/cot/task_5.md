@@ -52,7 +52,7 @@ int main() {
     cout << fixed << ans[i].x << ' ' << ans[i].y << endl;
   }
 }
-
+```
 ---
 
 The steps looks good please provide the final complete code translation. No matter how complex the translation may be, the program you provided MUST not be a partial program, and it MUST be able to compile successfully and pass all the test cases.
