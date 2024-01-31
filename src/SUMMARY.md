@@ -1,6 +1,6 @@
 # Summary
 
-[Candidates](./few_shot_candidate.md)
+[Summary](./progress_summary.md)
 
 - [Tasks To Test](./Interesting.md)
   - [Task 1 - Palindrome Pairs](./Ineresting/task_1.md)

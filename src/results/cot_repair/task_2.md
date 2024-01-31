@@ -369,7 +369,7 @@ Please note that the provided Rust code attempts to align with the original prog
 
 Given the intricacies of the original program and the limitations in translating it directly without iterative testing and debugging, I recommend using this code as a starting point. Further refinement and testing in a local development environment will be necessary to ensure it meets all the requirements and behaves as expected across all test cases.
 
-### Attempt 4 repair
+## Attempt 4 repair
 
 **Nonsense in reasoning**
 
