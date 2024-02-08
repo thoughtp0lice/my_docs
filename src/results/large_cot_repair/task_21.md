@@ -1,14 +1,12 @@
 # Task 21
 
-2 of 4 success
+4 of 4 success
 
 ## Attempt 1
 
-**Success?: False**
+**Success?: True**
 
 ### Generated Code
-
-**Error Type**: compiler
 
 ```rust
 use std::io::{self, Write};
@@ -658,11 +656,9 @@ This Rust program captures the logic and behavior of the given C++ code, perform
 
 ## Attempt 4
 
-**Success?: False**
+**Success?: True**
 
 ### Generated Code
-
-**Error Type**: compiler
 
 ```rust
 use std::io::{self, Write, BufRead};

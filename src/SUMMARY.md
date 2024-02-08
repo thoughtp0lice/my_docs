@@ -35,3 +35,5 @@
     - [Task 13](./results/large_cot_repair/task_13.md)
     - [Task 21](./results/large_cot_repair/task_21.md)
     - [Task 51](./results/large_cot_repair/task_51.md)
+    - [Task 54](./results/large_cot_repair/task_54.md)
+    - [Task 99](./results/large_cot_repair/task_99.md)
