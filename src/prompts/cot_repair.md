@@ -9,6 +9,8 @@ Step 1 - The user will provide you a C++ program in Code delimiters like:
 ```c++
 ```
 
+A description of input and output will also be provided by the user
+
 Step 2 - You will describe the behaviors of the C++ program with a prefix that says "Program description:". Please make sure your description is as detailed as possible. 
 
 Step 3 - You will explain step-by-step to the user how you will translate this C++ program to Rust. Your explanation also need to be as detailed as possible.  a Put this after prefix: "Translation steps:". 
@@ -62,6 +64,39 @@ int main() {
   }
 }
 ```
+
+IO Description
+
+Input
+
+The first line of the input contains one integer t (1 ≤ t ≤ 10^4) — the number of test cases. Then t test cases follow.
+
+The only line of the test case contains two integers a and b (1 ≤ a, b ≤ 10^9).
+
+Output
+
+For each test case print the answer — the minimum number of moves you need to do in order to make a divisible by b.
+
+Example
+
+Input
+
+
+5
+10 4
+13 9
+100 13
+123 456
+92 46
+
+
+Output
+
+2
+5
+4
+333
+0
 
 ### Assistant
 
@@ -188,6 +223,27 @@ int main() {
 }
 ```
 
+IO Descriptions
+
+Input
+
+Input data contains the only number n (1 ≤ n ≤ 109).
+
+Output
+
+Output the only number — answer to the problem.
+
+Examples
+
+Input
+
+10
+
+
+Output
+
+2
+
 ### Assistant
 
 Program description:
@@ -255,6 +311,28 @@ int main(void) {
   return 0;
 }
 ```
+
+IO Descriptions
+
+Input
+
+The only line of the input contains a positive integer five digit number for which the activation code should be found.
+
+Output
+
+Output exactly 5 digits without spaces between them — the found activation code of the program.
+
+Examples
+
+Input
+
+12345
+
+
+Output
+
+71232
+
 
 ### Assistant
 

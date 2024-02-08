@@ -31,3 +31,7 @@
     - [Task 3 Repair](./results/cot_repair/task_3.md)
     - [Task 4 Repair](./results/cot_repair/task_4.md)
     - [Task 5 Repair](./results/cot_repair/task_5.md)
+  - [Large Scale COT Repair](./results/large_cot_repair.md)
+    - [Task 13](./results/large_cot_repair/task_13.md)
+    - [Task 21](./results/large_cot_repair/task_21.md)
+    - [Task 51](./results/large_cot_repair/task_51.md)
