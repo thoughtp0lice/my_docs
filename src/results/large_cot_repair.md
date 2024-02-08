@@ -3,12 +3,18 @@
 ### Result Summary
 **Note**: Only ran on first 36 tasks to limit the money spent.
 
-- COT w repair result
+- COT w/ repair result
   - Average pass@1: 45.7%
   - Average pass@any: 57.1%
 - COT only result
   - Average pass@1: 35.4%
   - Average pass@any: 50%
+- Error Types:
+  - Compiler: 35.3% (30 of 85)
+  - Runtime: 64.7 (55 of 85)
+- Repair Success:
+  - Compiler Error: 20% (6 of 30)
+  - Runtime Error: 10.9% (6 of 55)
 
 #### Detailed Examples
 
