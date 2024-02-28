@@ -46,70 +46,47 @@ int main() {
 ```cfg
 int main()
 
- [B7(ENTRY)]
-	Succs: B6
- [B1]
-	Preds: B2
-	Succs: B5
- [B2]
-	1: operator<<
-	2: operator<<
-	3: cout
-	4: count
-	5: [B2.3] << [B2.4] (OperatorCall)
-	6: endl
-	7: [B2.5] << [B2.6] (OperatorCall)	Preds: B3 B4
-	Succs: B1
- [B3]
-	1: b
-	2: floor
-	3: a
-	4: b
-	5: [B3.3] / [B3.4]
-	6: [B3.2]([B3.5])
-	7: 1
-	8: [B3.6] + [B3.7]
-	9: [B3.1] * (([B3.8]))
-	10: a
-	11: [B3.9] - [B3.10]
-	12: count
-	13: [B3.12] = [B3.11]	Preds: B4
-	Succs: B2
- [B4]
-	1: long a;
-	2: long b;
-	3: 0
-	4: long count = 0;
-	5: operator>>
-	6: operator>>
-	7: cin
-	8: a
-	9: [B4.7] >> [B4.8] (OperatorCall)
-	10: b
-	11: [B4.9] >> [B4.10] (OperatorCall)
-	12: a
-	13: b
-	14: [B4.12] % [B4.13]
-	15: 0
-	16: [B4.14] != [B4.15]
-	T:  if [B4.16]
-	Preds: B5
-	Succs: B3 B2
- [B5]
-	1: t
-	2: [B5.1]--
-	T:  while [B5.2]
-	Preds: B1 B6
-	Succs: B4 B0
- [B6]
-	1: int t;
-	2: operator>>
-	3: cin
-	4: t
-	5: [B6.3] >> [B6.4] (OperatorCall)	Preds: B7
-	Succs: B5
- [B0(EXIT)]
-	Preds: B5
+[B0(ENTRY)]
+		Child Nodes: B1
+[B1]
+		1: int t; 
+		2: operator>> 
+		3: cin >> t 
+
+		Parent Nodes: B0
+		Child Nodes: B2
+[B2]
+
+		Branch:  while t--
+
+		Parent Nodes: B5 B1
+		Child Nodes: B3 B6
+[B3]
+		1: long a; 
+		2: long b; 
+		3: 0 
+		4: long count = 0; 
+		5: operator>> 
+		6: operator>> 
+		7: cin >> a >> b 
+		Branch:  if a % b != 0
+
+		Parent Nodes: B2
+		Child Nodes: B4 B5
+[B4]
+		1: count = b * ((floor(a / b) + 1)) - a 
+
+		Parent Nodes: B3
+		Child Nodes: B5
+[B5]
+		1: operator<< 
+		2: operator<< 
+		3: cout << count << endl 
+
+		Parent Nodes: B4 B3
+		Child Nodes: B2
+[B6(EXIT)]
+		Parent Nodes: B2
 ```
 
 IO Description
@@ -210,62 +187,41 @@ int main() {
 ```cfg
 int f(int a)
 
- [B5(ENTRY)]
-	Succs: B4
- [B1]
-	1: [B4.3] ? [B2.1] : [B3.15]
-	2: return [B1.1];	Preds: B2 B3
-	Succs: B0
- [B2]
-	1: 0	Preds: B4
-	Succs: B1
- [B3]
-	1: 1
-	2: f
-	3: a
-	4: 10
-	5: [B3.3] * [B3.4]
-	6: 1
-	7: [B3.5] + [B3.6]
-	8: [B3.2]([B3.7])
-	9: [B3.1] + [B3.8]
-	10: f
-	11: a
-	12: 10
-	13: [B3.11] * [B3.12]
-	14: [B3.10]([B3.13])
-	15: [B3.9] + [B3.14]	Preds: B4
-	Succs: B1
- [B4]
-	1: a
-	2: n
-	3: [B4.1] > [B4.2]
-	T:  [B4.3] ? ... : ...
-	Preds: B5
-	Succs: B2 B3
- [B0(EXIT)]
-	Preds: B1
+[B0(ENTRY)]
+        Child Nodes: B1
+[B1]
+
+        Branch:  a > n ? ... : ...
+
+        Parent Nodes: B0
+        Child Nodes: B2 B2
+[B2]
+        1: return a > n ? 0 : 1 + f(a * 10 + 1) + f(a * 10); 
+
+        Parent Nodes: B1 B1
+        Child Nodes: B3
+[B3(EXIT)]
+
+
+        Parent Nodes: B2
 
 
 int main()
 
- [B2(ENTRY)]
-	Succs: B1
- [B1]
-	1: operator>>
-	2: std::cin
-	3: n
-	4: [B1.2] >> [B1.3] (OperatorCall)
-	5: operator<<
-	6: std::cout
-	7: f
-	8: 1
-	9: [B1.7]([B1.8])
-	10: [B1.6] << [B1.9] (OperatorCall)	Preds: B2
-	Succs: B0
- [B0(EXIT)]
-	Preds: B1
+[B0(ENTRY)]
+        Child Nodes: B1
+[B1]
+        1: operator>> 
+        2: std::cin >> n 
+        3: operator<< 
+        4: std::cout << f(1) 
 
+        Parent Nodes: B0
+        Child Nodes: B2
+[B2(EXIT)]
+
+
+        Parent Nodes: B1
 
 ```
 
@@ -364,106 +320,79 @@ int main(void) {
 ```cfg
 long long pw(long long n, long long k)
 
- [B6(ENTRY)]
-	Succs: B5
- [B1]
-	1: pw
-	2: n
-	3: k
-	4: 2
-	5: [B1.3] / [B1.4]
-	6: [B1.1]([B1.2], [B1.5])
-	7: long long t = pw(n, k / 2);
-	8: t
-	9: t
-	10: [B1.8] * [B1.9]
-	11: 100000
-	12: [B1.10] % [B1.11]
-	13: return [B1.12];	Preds: B3
-	Succs: B0
- [B2]
-	1: n
-	2: pw
-	3: n
-	4: k
-	5: 1
-	6: [B2.4] - [B2.5]
-	7: [B2.2]([B2.3], [B2.6])
-	8: [B2.1] * [B2.7]
-	9: 100000
-	10: [B2.8] % [B2.9]
-	11: return [B2.10];	Preds: B3
-	Succs: B0
- [B3]
-	1: k
-	2: 1
-	3: [B3.1] & [B3.2]
-	T:  if [B3.3]
-	Preds: B5
-	Succs: B2 B1
- [B4]
-	1: 1
-	2: return [B4.1];	Preds: B5
-	Succs: B0
- [B5]
-	1: k
-	2: ![B5.1]
-	T:  if [B5.2]
-	Preds: B6
-	Succs: B4 B3
- [B0(EXIT)]
-	Preds: B1 B2 B4
+[B0(ENTRY)]
+        Child Nodes: B1
+[B1]
+
+        Branch:  if !k
+
+        Parent Nodes: B0
+        Child Nodes: B2 B3
+[B2]
+        1: return 1; 
+
+        Parent Nodes: B1
+        Child Nodes: B6
+[B3]
+
+        Branch:  if k & 1
+
+        Parent Nodes: B1
+        Child Nodes: B4 B5
+[B4]
+        1: return n * pw(n, k - 1) % 100000; 
+
+        Parent Nodes: B3
+        Child Nodes: B6
+[B5]
+        1: pw(n, k / 2) 
+        2: long long t = pw(n, k / 2); 
+        3: return t * t % 100000; 
+
+        Parent Nodes: B3
+        Child Nodes: B6
+[B6(EXIT)]
+
+
+        Parent Nodes: B5 B4 B2
 
 
 int main()
 
- [B6(ENTRY)]
-	Succs: B5
- [B1]
-	1: printf
-	2: "%05lld\n"
-	3: pw
-	4: atoi
-	5: r
-	6: [B1.4]([B1.5])
-	7: 5
-	8: [B1.3]([B1.6], [B1.7])
-	9: [B1.1]([B1.2], [B1.8])
-	10: 0
-	11: return [B1.10];	Preds: B4
-	Succs: B0
- [B2]
-	1: i
-	2: [B2.1]++	Preds: B3
-	Succs: B4
- [B3]
-	1: s
-	2: S
-	3: i
-	4: [B3.2][[B3.3]]
-	5: [B3.1][[B3.4]]
-	6: r
-	7: i
-	8: [B3.6][[B3.7]]
-	9: [B3.8] = [B3.5]	Preds: B4
-	Succs: B2
- [B4]
-	1: i
-	2: 5
-	3: [B4.1] < [B4.2]
-	T:  for (...; [B4.3]; ...)
-	Preds: B2 B5
-	Succs: B3 B1
- [B5]
-	1: scanf
-	2: "%s"
-	3: s
-	4: [B5.1]([B5.2], [B5.3])
-	5: 0
-	6: int i(0);	Preds: B6
-	Succs: B4
- [B0(EXIT)]
-	Preds: B1
+[B0(ENTRY)]
+        Child Nodes: B1
+[B1]
+        1: scanf("%s", s) 
+        2: 0 
+        3: int i(0); 
+
+        Parent Nodes: B0
+        Child Nodes: B2
+[B2]
+
+        Branch:  for (...; i < 5; ...)
+
+        Parent Nodes: B4 B1
+        Child Nodes: B3 B5
+[B3]
+        1: r[i] = s[S[i]] 
+
+        Parent Nodes: B2
+        Child Nodes: B4
+[B4]
+        1: i++ 
+
+        Parent Nodes: B3
+        Child Nodes: B2
+[B5]
+        1: printf("%05lld\n", pw(atoi(r), 5)) 
+        2: return 0; 
+
+        Parent Nodes: B2
+        Child Nodes: B6
+[B6(EXIT)]
+
+        Parent Nodes: B5
 ```
 
 IO Descriptions
