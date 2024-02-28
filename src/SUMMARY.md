@@ -2,6 +2,7 @@
 
 [Summary](./progress_summary.md)
 
+- [CFG Example](./cfg_example.md)
 - [Tasks To Test](./Interesting.md)
   - [Task 1 - Palindrome Pairs](./Ineresting/task_1.md)
   - [Task 2 - Disjoint Set Union](./Ineresting/task_2.md)
