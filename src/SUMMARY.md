@@ -14,6 +14,7 @@
   - [Naive Prompt](./prompts/naive_translation.md)
   - [Chain of Thought](./prompts/cot_translation.md)
   - [Control Flow Graph](./prompts/cfg_translation.md)
+  - [CFG with JSON](./prompts/cfg_json_translation.md)
 - [Results](./results.md)
   - [Naive Prompt](./results/naive_prompt.md)
     - [Task 1](./results/naive_prompt/task_1.md)
