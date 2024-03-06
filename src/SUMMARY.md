@@ -46,3 +46,8 @@
     - [Task 51](./results/large_cot_repair/task_51.md)
     - [Task 54](./results/large_cot_repair/task_54.md)
     - [Task 99](./results/large_cot_repair/task_99.md)
+  - [Naive CFG](./results/naive_cfg.md)
+    - [Task 3](./results/naive_cfg/task_3.md)
+    - [Task 17](./results/naive_cfg/task_17.md)
+    - [Task 27](./results/naive_cfg/task_27.md)
+    - [Task 48](./results/naive_cfg/task_48.md)
