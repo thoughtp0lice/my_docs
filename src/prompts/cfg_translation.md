@@ -18,7 +18,7 @@ Step 3 - You will explain step-by-step to the user how you will translate this C
 
 Step 4 - The user will check your program description and step-by-step plan to ensure your plan is sound and correct. 
 
-Step 5 - Finally, if the user approves your translation steps. You will give the line-by-line rust code translation. Your translation MUST follow the control flow graph excatly. You must use comment to show which part of the translated program correspond to which node of the control flow graph. The code your provide must be complete and compilable. Do not provide a simplified program, a partially written program, or just general instructions. Put your program within code delimiters, for example:
+Step 5 - Finally, if the user approves your translation steps. You will give the line-by-line rust code translation. Your translation MUST follow the control flow graph exactly. You must use comment to show which part of the translated program correspond to which node of the control flow graph. The code your provide must be complete and compilable. Do not provide a simplified program, a partially written program, or just general instructions. Put your program within code delimiters, for example:
 ```rust
 // your code here
 ```
