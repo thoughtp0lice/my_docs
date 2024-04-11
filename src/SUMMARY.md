@@ -3,6 +3,7 @@
 [Summary](./progress_summary.md)
 
 - [CFG Example](./cfg_example.md)
+- [Block by Block Demo](./bbb_demo.md)
 - [Running Local LLM](./running_llm.md)
 - [Tasks To Test](./Interesting.md)
   - [Task 1 - Palindrome Pairs](./Ineresting/task_1.md)
